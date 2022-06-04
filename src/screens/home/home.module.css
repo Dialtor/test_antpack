@@ -1,16 +1,15 @@
 .cards{
-    width: 90%;
-    height: 500px;
+    max-width: 1000px;
+    width: 100%;
+    padding: 40px 0;
+    height: 540px;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 60px;
     margin: 0 auto;
-
-    padding: 80px 20px;
+    padding: 0px;
     background-color: rgba(237, 229, 229, 0.162);
-    overflow-y: auto;
 }
 
 /* .container{
