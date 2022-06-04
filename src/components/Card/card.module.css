@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+
+.card {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    width: 350px;
+    height: 190px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s all ease;
+    display: block;
+}
+
+.card:hover {
+    height: 450px;
+    transform: scale(1.1);
+    z-index: 3;
+}
+
+.imgBox {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    background: #000;
+    border-radius: 20px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
+    transition: 0.5s all ease;
+    z-index: 1;
+}
+
+.card:hover .imgBox {
+    width: 250px;
+    height: 250px;
+}
+
+.imgBox img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.addImage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    border-radius: 20px;
+    background-color: rgba(209, 211, 228, 0.423);
+    content: '';
+    opacity: 0;
+    cursor: pointer;
+    transition: 0.2s all ease-in-out;
+}
+
+.addImage img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+}
+
+.imgBox:hover .addImage {
+    opacity: 1;
+}
+
+.card .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+}
+
+.card .content .details {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: 0.5s all ease;
+    transform: translateY(280px);
+}
+
+.card:hover .content .details {
+    transform: translateY(30px);
+}
+
+.card .content .details h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #555;
+    line-height: 1.2em;
+}
+
+.card .content .details h2 span {
+    font-size: 0.75em;
+    font-weight: 500;
+    opacity: 0.5;
+}
+
+.flex_left_container {
+    /* background-color: red; */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.flex_left_container div {
+    display: flex;
+    /* background-color: beige; */
+    margin-left: 20px;
+    gap: 10px;
+}
+
+.card .content .details p {
+    color: #555;
+}
+
+.button {
+    line-height: 50px;
+    height: 50px;
+    text-align: center;
+    width: 250px;
+    cursor: pointer;
+    background-color: rgb(35, 35, 69);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1em;
+}
+
+.button {
+    color: rgb(241, 242, 236);
+    transition: all 0.5s;
+    position: relative;
+    border: none;
+    border-radius: 12px;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(231, 224, 151, 0.1);
+    transition: all 0.3s;
+    border-radius: 12px;
+}
+
+.button:hover::before {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border: 1px solid rgba(228, 222, 181, 0.5);
+    transform: scale(1.2, 1.2);
+    border-radius: 12px;
+}
+
+.button:hover::after {
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+input[type=radio] {
+    display: none;
+}
+
+/* #item-2:checked ~ .cards #selector-1,
+#item-1:checked ~ .cards #selector-3,
+#item-3:checked ~ .cards #selector-2{
+    transform: translateX(-40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-3:checked ~ .cards #selector-1,
+#item-1:checked ~ .cards #selector-2,
+#item-2:checked ~ .cards #selector-3{
+    transform: translateX(40%) scale(0.8);
+    opacity: 0.6;
+    z-index: 0;
+}
+
+#item-1:checked ~ .cards #selector-1,
+#item-2:checked ~ .cards #selector-2,
+#item-3:checked ~ .cards #selector-3{
+    transform: translateX(0) scale(1);
+    z-index: 1;
+} */

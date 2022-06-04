@@ -1,0 +1,23 @@
+.cards{
+    width: 90%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 0 auto;
+
+    padding: 80px 20px;
+    background-color: rgba(237, 229, 229, 0.162);
+    overflow-y: auto;
+}
+
+/* .container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+} */
