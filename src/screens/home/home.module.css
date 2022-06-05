@@ -2,8 +2,9 @@
     background-color: rgba(237, 229, 229, 0.162);
     cursor: grab;
     user-select: none;
-    width: 20%;
-    min-width: 200px;
+    width: 80%;
+    min-width: 300px;
+    max-width: 1100px;
     min-height: 600px;
     /* margin: 20px 0 100px 0 ; */
     overflow-x: hidden;
@@ -36,7 +37,6 @@
 
     .cards {
         overflow-x: scroll;
-        width: 7.5%;;
     }
 
     
