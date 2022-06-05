@@ -160,3 +160,9 @@
     }
 
 }
+
+@media screen and (max-height:490px) {
+    .flex_right_container {
+        overflow-y: scroll;
+    }
+}
