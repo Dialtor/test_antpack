@@ -73,6 +73,7 @@ const Home = () => {
               username = {user.username}
               email = {user.email}
               company = {user.company.name}
+              city = {user.address.city}
               src = {user.src}
               onClose = {onClose}
               setOnClose = {setOnClose}
