@@ -13,6 +13,12 @@ export default function Footer() {
           <a href="https://dialtordev.netlify.app/" target="_blank"><img src="https://img.icons8.com/color/480/internet--v1.png" alt="twitter-logo" width="40px" /></a>
           </div>
         </div>
+        <div className={style.social_media_container}>
+          <h3>Code Repository</h3>
+          <div>
+          <a href="https://github.com/Dialtor" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="Github-logo" width="60px" /></a>
+          </div>
+        </div>
     </footer>
   )
 }
