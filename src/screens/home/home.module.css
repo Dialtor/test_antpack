@@ -2,7 +2,6 @@
     background-color: rgba(237, 229, 229, 0.162);
     cursor: grab;
     user-select: none;
-    position: relative;
     width: 800px;
     min-height: 600px;
     /* margin: 20px 0 100px 0 ; */
