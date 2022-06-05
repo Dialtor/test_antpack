@@ -26,7 +26,7 @@ const Home = () => {
 
 
   const AnimationSwipe = () => {
-    const slider = document.querySelector('.home_cards__7zD0r');
+    const slider = document.querySelector('#cards_container');
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -58,7 +58,7 @@ const Home = () => {
 
   // console.log("JSON With Image Data",dataWithImage);
   return (
-    <div className={style.cards}>
+    <div id="cards_container" className={style.cards}>
       <Detail
           onClose = {onClose}
           setOnClose = {setOnClose}
