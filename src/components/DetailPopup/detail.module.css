@@ -1,16 +1,17 @@
 
 .div_container {
     width: 100%;
-    height: 100%;
+    height: auto;
     position: absolute;
+    top: 25%;
     left: 0;
-    top: 0;
-    background-color: transparent;
+    /* background-color: red; */
     animation: fade-in .8s ease forwards;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0px 0px;
+    z-index: 3;
 }
 
 @keyframes fade-in {
@@ -54,6 +55,7 @@
     align-items: center;
     gap: 10px;
     border-left: 1px solid rgb(179, 166, 166);
+    overflow-y: scroll;
 }
 
 .flex_left_container img{
@@ -161,8 +163,15 @@
 
 }
 
-@media screen and (max-height:490px) {
+@media screen and (max-height:500px) {
     .flex_right_container {
         overflow-y: scroll;
     }
+}
+
+@media screen and (max-width:640px) {
+    .div_container {
+        top: 2%;
+    }
+
 }

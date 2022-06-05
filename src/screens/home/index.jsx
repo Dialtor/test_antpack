@@ -1,8 +1,10 @@
 import style from './home.module.css';
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Card from '../../components/Card';
 import { useGetUser } from '../../hooks/useGetUser';
 import Detail from '../../components/DetailPopup';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 
 
@@ -17,7 +19,7 @@ const Home = () => {
     AnimationSwipe();
   }, []);
 
-  const {getData} = useGetUser({setDataWithImage});
+  const { getData } = useGetUser({ setDataWithImage });
 
   const handlerUser = (id) => {
     const user = dataWithImage.filter(item => id === item.id);
@@ -30,7 +32,7 @@ const Home = () => {
     let isDown = false;
     let startX;
     let scrollLeft;
-  
+
     slider.addEventListener('mousedown', (e) => {
       isDown = true;
       slider.classList.add('active');
@@ -46,44 +48,51 @@ const Home = () => {
       slider.classList.remove('active');
     });
     slider.addEventListener('mousemove', (e) => {
-      if(!isDown) return;
+      if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - startX) * 3; //scroll-fast
       slider.scrollLeft = scrollLeft - walk;
-    //   console.log(walk);
+      //   console.log(walk);
     });
   }
-  
+
 
   // console.log("JSON With Image Data",dataWithImage);
   return (
-    <div id="cards_container" className={style.cards}>
-      <Detail
-          onClose = {onClose}
-          setOnClose = {setOnClose}
-          user = {user}
-      />
-      {dataWithImage && dataWithImage.map((user,index) => {
+    <Fragment>
+      <Navbar />
+        {/* <div>
+          <input type="text" placeholder='Search Person' />
+        </div> */}
+      <div id="cards_container" className={style.cards}>
+        <Detail
+          onClose={onClose}
+          setOnClose={setOnClose}
+          user={user}
+        />
+        {dataWithImage && dataWithImage.map((user, index) => {
           return (
             <Card
               key={user.id}
               id={user.id}
               name={user.name}
-              username = {user.username}
-              email = {user.email}
-              company = {user.company.name}
-              city = {user.address.city}
-              src = {user.src}
-              onClose = {onClose}
-              setOnClose = {setOnClose}
-              handlerUser = {handlerUser}
+              username={user.username}
+              email={user.email}
+              company={user.company.name}
+              city={user.address.city}
+              src={user.src}
+              onClose={onClose}
+              setOnClose={setOnClose}
+              handlerUser={handlerUser}
             />
           )
         })
-      }
-    </div>
-    )
+        }
+      </div>
+      <Footer/>
+    </Fragment>
+  )
 }
 
 export default Home;

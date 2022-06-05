@@ -1,18 +1,14 @@
 .cards{
     background-color: rgba(237, 229, 229, 0.162);
+    box-shadow: 0px 4px 8px rgba(54, 53, 51, 0.26);
     cursor: grab;
     user-select: none;
     width: 80%;
     min-width: 300px;
     max-width: 1100px;
     min-height: 600px;
-    /* margin: 20px 0 100px 0 ; */
     overflow-x: hidden;
     overflow-y: hidden;
-    /* white-space: nowrap;
-    transition: all 0.2s;
-    transform: scale(0.98);
-    will-change: transform; */
     user-select: none;
     display: flex;
     align-items: center;
@@ -21,7 +17,33 @@
     gap: 80px;
     animation: fade-in 2s ease forwards;
     margin: 0 auto;
-    /* scroll-snap-type: x mandatory; */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+div input{
+    width: 340px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(238, 232, 232);
+    outline: none;
+    font-size: 1.2rem;
+    transition: 0.3s all ease;
+    position: absolute;
+    top: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgb(238, 232, 232);
+    z-index: 1;
+}
+
+div input:focus{
+    width: 500px;
+}
+
+div input::placeholder{
+    text-align: center;
 }
 
 @keyframes fade-in {
@@ -39,6 +61,12 @@
         overflow-x: scroll;
     }
 
+    div input{
+        width: 250px;
+    }
     
+    div input:focus{
+        width: 300px;
+    }
 }
 

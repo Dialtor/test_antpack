@@ -15,7 +15,9 @@
     align-items: center;
     margin: 4px 10px 0 4px;
     animation: fade-in 2s ease forwards;
+    margin-top: 100px;
     /* scroll-snap-align: center; */
+ 
 
 }
 
