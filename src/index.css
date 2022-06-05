@@ -11,3 +11,22 @@ body {
   overflow: hidden;
 }
 
+* {
+  scrollbar-color: var(rgb(35, 35, 69)) white;
+  scrollbar-width: thin;
+}
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: white;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(35, 35, 69);
+  /* border-radius: 20px; */
+  border: 100% solid rgb(35, 35, 69);
+}
+
