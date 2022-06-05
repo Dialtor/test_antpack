@@ -30,19 +30,30 @@ export default ({onClose, setOnClose, user}) => {
         {
           user.map(value => {
             return (
-              <div className={style.div_info_container}>
+              <div id={value.id} className={style.div_info_container}>
                 <div className={style.flex_left_container}>
                   <img src={value.src} alt="profile-photo" />
-                  <button id="btn_close_popup" onClick={() => setOnClose(false)}>cerrar</button>
+                  <button id="btn_close_popup" onClick={() => setOnClose(false)}>Close</button>
                 </div>
                 <div className={style.flex_right_container}>
+                <button className={style.btn_close_popup_mobile} onClick={() => setOnClose(false)}>Close</button>
                   <div>
-                    <img src={iconCompany} width="20px" alt="icon-item" />
-                    <p>{value.company.name}</p>
+                  <div className={style.title_info_address}>
+                    <h3>Contact Info</h3>
+                    </div>
+                    <p><span>Name: </span>{value.name}</p>
+                    <p><span>User: </span>@{value.username}</p>
+                    <p><span>Company: </span>{value.company.name}</p>
+                    <p><span>Email: </span>{value.email}</p>
+                    <p><span>WebSite: </span><a href="#">{value.website}</a></p>
                   </div>
                   <div>
-                    <img src={iconEmail} width="20px" alt="icon-item" />
-                    <p>{value.email}</p>
+                    <div className={style.title_info_address}>
+                    <h3>Address Info</h3>
+                    </div>
+                    <p><span>City: </span>{value.address.city}</p>
+                    <p><span>Suite: </span>{value.address.suite}</p>
+                    <p><span>Zip Code: </span>{value.address.zipcode}</p>
                   </div>
                 </div>
               </div>

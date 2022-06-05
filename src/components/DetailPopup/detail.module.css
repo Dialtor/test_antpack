@@ -24,7 +24,7 @@
 }
 
 .div_info_container {
-    width: 80%;
+    width: 84%;
     min-width: 300px;
     max-width: 1200px;
     height: 90%;
@@ -41,7 +41,7 @@
     /* background-color: rgba(255, 0, 0, 0.264); */
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -52,6 +52,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 10px;
     border-left: 1px solid rgb(179, 166, 166);
 }
 
@@ -61,5 +62,101 @@
     /* position: absolute;
     left: 50%;
     top: 10px;
-    transform: translateX(-50%); */
+    transfor
+    m: translateX(-50%); */
+}
+
+.flex_left_container button {
+    width: 240px;
+    height: 40px;
+    background-color: #232345;
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    border: none;
+    transition: 0.3s all ease;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(89, 74, 30, 0.16);
+    cursor: pointer;
+}
+
+.flex_left_container button:hover {
+    box-shadow: 0px 4px 8px rgba(89, 74, 30, 0.36);
+}
+
+.flex_right_container > div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 80%;
+    background-color: rgba(232, 221, 221, 0.069);
+    /* box-shadow: 0px 4px 8px rgba(89, 74, 30, 0.16); */
+    border-bottom: .5px solid rgb(222, 216, 216);
+    height: auto;
+    padding: 10px 2px;
+    gap: 10px;
+    word-wrap: break-word;
+}
+
+.flex_right_container div:nth-child(1) {
+    margin-top: 35px;
+}
+
+.flex_right_container > div:nth-child(5) {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.flex_right_container p > span {
+    font-weight: 500;
+}
+
+.btn_close_popup_mobile {
+    display: none;
+}
+
+@media screen and (max-width:640px) {
+    .div_info_container {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    
+    .flex_left_container {
+        width: 80%;
+        border-bottom: 1px solid rgb(179, 166, 166);
+        padding: 10px 0;
+    }
+
+    .flex_right_container {
+        width: 80%;
+        border-left: none;
+    }
+
+    .flex_left_container button {
+        display: none;
+    }
+
+    .btn_close_popup_mobile {
+        width: 240px;
+        height: 40px;
+        background-color: #232345;
+        color: white;
+        font-weight: 500;
+        font-size: 1rem;
+        border: none;
+        transition: 0.3s all ease;
+        border-radius: 8px;
+        box-shadow: 0px 4px 8px rgba(89, 74, 30, 0.16);
+        cursor: pointer;
+        margin-top: 10px;
+        display: block;
+    }
+
+    .btn_close_popup_mobile:hover {
+        box-shadow: 0px 4px 8px rgba(89, 74, 30, 0.36);
+    }
+
 }
