@@ -10,13 +10,37 @@
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
     transition: 0.5s all ease;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4px 10px 0 4px;
+    animation: fade-in 2s ease forwards;
+    /* scroll-snap-align: center; */
 
 }
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateX(600px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+
+/* .expand_card{
+    height: 450px;
+    transform: scale(1.1);
+    z-index: 4;
+} */
 
 .card:hover {
     height: 450px;
     transform: scale(1.1);
-    z-index: 3;
+    z-index: 4;
 }
 
 .imgBox {
@@ -26,12 +50,13 @@
     transform: translateX(-50%);
     width: 150px;
     height: 150px;
-    background: #000;
+    background: rgba(24, 24, 24, 0.523);
     border-radius: 20px;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.35);
     transition: 0.5s all ease;
     z-index: 1;
 }
+
 
 .card:hover .imgBox {
     width: 250px;
@@ -74,6 +99,21 @@
     opacity: 1;
 }
 
+.icon_close {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(240, 234, 52);
+    border-radius: 50%;
+    background-image: url('../../assets/svg/close.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    background-size: 20px;
+    transform: translateY(-80px);
+    opacity: 1;
+    z-index: 2;
+}
+
 .card .content {
     position: absolute;
     width: 100%;
@@ -91,6 +131,7 @@
     transition: 0.5s all ease;
     transform: translateY(210px);
 }
+
 
 .card:hover .content .details {
     transform: translateY(30px);
@@ -185,6 +226,12 @@
 .button:hover::after {
     opacity: 1;
     transform: scale(1, 1);
+}
+
+
+.button a {
+    color: white;
+    text-decoration: none;
 }
 
 input[type=radio] {

@@ -1,11 +1,13 @@
 import style from './card.module.css';
 import iconCompany from '../../assets/svg/company.svg';
 import iconEmail from '../../assets/svg/email.svg';
+import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 
+export default function Card({ username, email, name, company, src, onClose, setOnClose, handlerUser,id}) {
 
-export default function Card({ username, email, name, company, src}) {
   return (
     <div className={style.card} id="selector-1">
       <div className={style.imgBox}>
@@ -14,6 +16,7 @@ export default function Card({ username, email, name, company, src}) {
           <img src="https://freeiconshop.com/wp-content/uploads/edd/upload-cloud-outline.png" alt="" />
         </div>
       </div>
+      {/* <div className={style.icon_close}></div> */}
       <div className={style.content}>
         <div className={style.details}>
           <h2>{name}<br></br><span>@{username}</span></h2>
@@ -27,7 +30,7 @@ export default function Card({ username, email, name, company, src}) {
               <p>{company}</p>
             </div>
           </div>
-          <button className={style.button}>More Info</button>
+          <button className={style.button} onClick={()=> [setOnClose(!onClose),handlerUser(id)]}>More Info</button>
         </div>
       </div>
     </div>

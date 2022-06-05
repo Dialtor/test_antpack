@@ -1,76 +1,82 @@
 import style from './home.module.css';
-import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Card from '../../components/Card';
-import './swiper-bundle.min.css';
+import { useGetUser } from '../../hooks/useGetUser';
+import Detail from '../../components/DetailPopup';
+
 
 
 const Home = () => {
 
-  const [data, setData] = useState([]);
   const [dataWithImage, setDataWithImage] = useState([]);
+  const [onClose, setOnClose] = useState(false);
+  const [user, setUser] = useState();
 
   useEffect(() => {
     getData();
+    AnimationSwipe();
   }, []);
 
-  const API = 'https://jsonplaceholder.typicode.com/users';
+  const {getData} = useGetUser({setDataWithImage});
+
+  const handlerUser = (id) => {
+    const user = dataWithImage.filter(item => id === item.id);
+    setUser(user);
+  }
 
 
-
-  const getData = async () => {
-    axios.get(API).then((res) => {
-      setData(res.data);
-
-      if (res.data.length>0) {
-        getImages(res.data);
-      }
-
-    }).catch((err) => {
-      console.log(err)
+  const AnimationSwipe = () => {
+    const slider = document.querySelector('.home_cards__7zD0r');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+  
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+    slider.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 3; //scroll-fast
+      slider.scrollLeft = scrollLeft - walk;
+    //   console.log(walk);
     });
   }
+  
 
-
-  const getImages = (data) => {
-    const images = [
-      'https://images.pexels.com/photos/3775125/pexels-photo-3775125.jpeg',
-      'https://images.pexels.com/photos/3769706/pexels-photo-3769706.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/12192379/pexels-photo-12192379.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3772519/pexels-photo-3772519.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/1059180/pexels-photo-1059180.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3785424/pexels-photo-3785424.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3781545/pexels-photo-3781545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/3763152/pexels-photo-3763152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
-    ];
-
-      let newData = data.map(value => {
-        return (
-          images.map(image => {
-            return (
-              {...value, src: image}
-            )
-          })
-        )
-      })
-
-      setDataWithImage(newData[0]);
-  }
-
-  console.log("JSON With Image Data",dataWithImage);
+  // console.log("JSON With Image Data",dataWithImage);
   return (
     <div className={style.cards}>
+      <Detail
+          onClose = {onClose}
+          setOnClose = {setOnClose}
+          user = {user}
+      />
       {dataWithImage && dataWithImage.map((user,index) => {
           return (
             <Card
-              key={index}
+              key={user.id}
+              id={user.id}
               name={user.name}
               username = {user.username}
               email = {user.email}
               company = {user.company.name}
               src = {user.src}
+              onClose = {onClose}
+              setOnClose = {setOnClose}
+              handlerUser = {handlerUser}
             />
           )
         })
