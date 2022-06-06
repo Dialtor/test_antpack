@@ -16,7 +16,7 @@ export default function Footer() {
         <div className={style.social_media_container}>
           <h3>Code Repository</h3>
           <div>
-          <a href="https://github.com/Dialtor" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="Github-logo" width="60px" /></a>
+          <a href="https://github.com/Dialtor/test_antpack" target="_blank"><img src="https://github.githubassets.com/images/modules/logos_page/Octocat.png" alt="Github-logo" width="60px" /></a>
           </div>
         </div>
     </footer>

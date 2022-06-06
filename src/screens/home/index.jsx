@@ -13,6 +13,7 @@ const Home = () => {
   const [dataWithImage, setDataWithImage] = useState([]);
   const [onClose, setOnClose] = useState(false);
   const [user, setUser] = useState();
+  const [inputSearch, setInputSearch] = useState("");
 
   useEffect(() => {
     getData();
@@ -62,9 +63,9 @@ const Home = () => {
   return (
     <Fragment>
       <Navbar />
-        {/* <div>
-          <input type="text" placeholder='Search Person' />
-        </div> */}
+        <div>
+          <input type="text" placeholder='Search Person' onChange={(e)=>setInputSearch(e.target.value)} />
+        </div>
       <div id="cards_container" className={style.cards}>
         <Detail
           onClose={onClose}
@@ -72,21 +73,23 @@ const Home = () => {
           user={user}
         />
         {dataWithImage && dataWithImage.map((user, index) => {
-          return (
-            <Card
-              key={user.id}
-              id={user.id}
-              name={user.name}
-              username={user.username}
-              email={user.email}
-              company={user.company.name}
-              city={user.address.city}
-              src={user.src}
-              onClose={onClose}
-              setOnClose={setOnClose}
-              handlerUser={handlerUser}
-            />
-          )
+          if (user.name.toLowerCase().includes(inputSearch.trim().toLowerCase())) {
+            return (
+              <Card
+                key={user.id}
+                id={user.id}
+                name={user.name}
+                username={user.username}
+                email={user.email}
+                company={user.company.name}
+                city={user.address.city}
+                src={user.src}
+                onClose={onClose}
+                setOnClose={setOnClose}
+                handlerUser={handlerUser}
+              />
+            )
+          }
         })
         }
       </div>
